@@ -1,0 +1,11 @@
+The following libraries can be redistributed if you are using the Azure Cognitive Services Vision SDK (Preview),
+subject to the license (https://aka.ms/azai/vision/license).
+
+Azure.AI.Vision.<COMPONENT>.<VERSION>.nupkg (or content derived from it)
+azure-ai-vision-<COMPONENT>-<VERSION>.deb (or content derived from it)
+azure-ai-vision-<COMPONENT>-<VERSION>.aar (or content derived from it)
+azure-ai-vision-<COMPONENT>-<VERSION>.jar (or content derived from it)
+azure_ai_vision-<VERSION>.whl (or content derived from it)
+AzureAIVision.xcframework (or content derived from it)
+
+Depending on your usage, you only need to redistribute a subset of the above.
