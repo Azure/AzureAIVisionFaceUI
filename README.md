@@ -8,6 +8,51 @@ This repository hosts Azure AI Vision Face UI SDK for iOS platform.
 2. A Mac (with iOS development environment, Xcode 13+), an iPhone (iOS 14+).
 3. An Apple developer account to install and run development apps on the iPhone.
 
+## Installation
+
+1. **Prepare Xcode environment**: For the best experience, please do not open your application project in Xcode yet before completing the environment setup.
+
+2. **Get PAT access token**: <a id="get-access-token"></a>Fetch the PAT access token required for downloading release artifacts, using the API: [Get Client Assets Access Token](https://learn.microsoft.com/rest/api/face/liveness-session-operations/get-client-assets-access-token?view=rest-face-v1.3-preview)
+
+3. **Install Git LFS**: Prepare Git LFS
+   * If you have never installed Git LFS, refer to [Git LFS official site](https://git-lfs.github.com/) for instructions.
+   * For example:
+
+      ```sh
+      # install with homebrew
+      brew install git-lfs
+      # verify and initialize
+      git lfs --version
+      git lfs install
+      ```
+
+4. **Configure Git authentication**: The subsequent steps assume your application will reference the SDK through Swift Package Manager (SPM). Configure the authorization of the git repository from which SPM will pull the package:
+
+   4.1. Open your global git config file.
+
+      ```sh
+      # path will be shown by the following command, then open it using editor
+      git config --global --show-origin --list | head -1
+      # alternatively default editor will be used if using the following command
+      git config --global --edit
+      ```
+
+   4.2. Get the PAT access token from [step 2](#get-access-token) above, then add it to the config:
+
+      ```config
+      [credential "https://msface.visualstudio.com"]
+              username = pat
+              helper =
+              helper = "!f() { test \"$1\" = get && echo \"password=INSERT_PAT_HERE\"; }; f"
+
+              # get PAT from Get Client Assets Access Token REST API and paste ^^^^^^^^^^^^^^^ above, replacing "INSERT_PAT_HERE".
+              # username does not matter for PAT so long as it is not left blank.
+              # the first blank helper line is necessary to override existing helpers and not a typo.
+      ```
+
+   * for other methods of dependency such as CocoaPods, or other methods of git authentication, please refer to the [FAQ](#faq) section of this document.
+
+5. **Install Xcode Command Line Tools**: If Xcode Command Line Tools is never installed on your machine, install it first [following instructions from Apple Developer website](https://developer.apple.com/library/archive/technotes/tn2339/_index.html).
 ## Integrate face liveness detection into your own application
 
 1. Configure your Xcode project
