@@ -28,6 +28,8 @@ This repository hosts Azure AI Vision Face UI SDK for iOS platform.
 
 4. **Configure Git authentication**: The subsequent steps assume your application will reference the SDK through Swift Package Manager (SPM). Configure the authorization of the git repository from which SPM will pull the package:
 
+   > **Choose one package manager.** If your project already uses CocoaPods, use the [CocoaPods method](#q-how-do-we-use-cocoapods-or-other-package-managers) instead of SPM. Do **not** mix SPM and CocoaPods for this SDK in the same project — pick one to avoid build conflicts. The following steps (4.x) apply only to SPM users.
+
    4.1. Open your global git config file.
 
       ```sh
@@ -66,6 +68,8 @@ This repository hosts Azure AI Vision Face UI SDK for iOS platform.
    ![Privacy - Camera Usage Description](https://github.com/Azure-Samples/azure-ai-vision-sdk/blob/docs/ios/AzureAIVisionFaceUI/1.4.0/img/privacy_camera_usage_description.png)
 
 2. Add package dependency by adding AzureAIVisionFaceUI in **Xcode → Files → Add Package Dependencies** for Swift Package Manager. See [FAQ](#faq) for other dependency management tools.
+
+   > **Using CocoaPods?** Skip this step and follow the [CocoaPods instructions in the FAQ](#q-how-do-we-use-cocoapods-or-other-package-managers) instead. Mixing SPM and CocoaPods for this SDK will cause build errors (e.g. `SWBUtil.BinaryReaderError error 0`).
    
    ![Xcode → Files → Add Package Dependencies](https://github.com/Azure-Samples/azure-ai-vision-sdk/blob/docs/ios/AzureAIVisionFaceUI/1.4.0/img/xcode_files_add_package_dependencies.png)
    
@@ -125,6 +129,48 @@ This repository hosts Azure AI Vision Face UI SDK for iOS platform.
 
 
 5. Compare `digest` from both the client's `LivenessDetectionSuccess` instance and service response to ensure integrity. For more details, see [DeviceCheck | Apple Developer Documentation](https://developer.apple.com/documentation/devicecheck)
+
+## Troubleshooting
+
+### `SWBUtil.BinaryReaderError error 0`
+
+This error typically occurs when Xcode encounters invalid binary data in the SDK framework. Common causes:
+
+- **Git LFS binaries not downloaded.** The framework files are stored in Git LFS. If LFS is not installed or not authenticated, Xcode receives LFS pointer files instead of actual binaries, which it cannot read.
+- **Mixing SPM and CocoaPods.** Using both package managers for this SDK in the same project causes conflicting framework references.
+
+**Fix steps:**
+
+1. Verify Git LFS is installed and initialized:
+   ```sh
+   git lfs --version
+   git lfs install
+   ```
+2. Verify your PAT is configured using a secure method. Refer to the [FAQ entry on alternatives for access authorization](#q-are-there-alternatives-for-access-authorization) for guidance on using credential manager or `extraHeader` approaches.
+3. Clean Xcode's DerivedData and reset package caches: **Xcode → File → Packages → Reset Package Caches**, then delete `~/Library/Developer/Xcode/DerivedData`.
+4. Re-resolve packages via the terminal (specify your project or workspace explicitly):
+   ```sh
+   xcodebuild -scmProvider system -resolvePackageDependencies -project YourProject.xcodeproj
+   # or, if using a workspace:
+   # xcodebuild -scmProvider system -resolvePackageDependencies -workspace YourProject.xcworkspace
+   ```
+5. If your project uses CocoaPods, switch to the [CocoaPods method](#q-how-do-we-use-cocoapods-or-other-package-managers) instead of SPM and remove the SPM package reference.
+
+### Package resolution fails and "Add Anyway" doesn't help
+
+If the package remains unresolved after following the [integration steps](#integrate-face-liveness-detection-into-your-own-application):
+
+1. Ensure Git LFS is installed and your PAT is configured **before** adding the package in Xcode.
+2. Close Xcode completely.
+3. Run from the terminal, in the directory where your `.xcodeproj` is located:
+   ```sh
+   xcodebuild -scmProvider system -resolvePackageDependencies -project YourProject.xcodeproj
+   # or, if using a workspace:
+   # xcodebuild -scmProvider system -resolvePackageDependencies -workspace YourProject.xcworkspace
+   ```
+4. Reopen the project in Xcode. The package should now be resolved.
+
+If it still fails, check that your PAT has not expired by re-fetching it from the [Get Client Assets Access Token API](https://learn.microsoft.com/rest/api/face/liveness-session-operations/get-client-assets-access-token?view=rest-face-v1.3-preview).
 
 ## FAQ
 
