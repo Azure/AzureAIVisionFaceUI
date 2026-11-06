@@ -36,6 +36,225 @@
       },
       {
         "kind": "Import",
+        "name": "CryptoKit",
+        "printedName": "CryptoKit",
+        "declKind": "Import",
+        "moduleName": "AzureAIVisionFaceUI",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AzureAIVisionFaceUI"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "IosAesGcm",
+        "printedName": "IosAesGcm",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "encrypt",
+            "printedName": "encrypt(key:iv:plaintext:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Data",
+                "printedName": "Foundation.Data",
+                "usr": "s:10Foundation4DataV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Data",
+                "printedName": "Foundation.Data",
+                "usr": "s:10Foundation4DataV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Data",
+                "printedName": "Foundation.Data",
+                "usr": "s:10Foundation4DataV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Data",
+                "printedName": "Foundation.Data",
+                "usr": "s:10Foundation4DataV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@AzureAIVisionFaceUI@objc(cs)IosAesGcm(cm)encryptWithKey:iv:plaintext:error:",
+            "mangledName": "$s19AzureAIVisionFaceUI9IosAesGcmC7encrypt3key2iv9plaintext10Foundation4DataVAJ_A2JtKFZ",
+            "moduleName": "AzureAIVisionFaceUI",
+            "static": true,
+            "objc_name": "encryptWithKey:iv:plaintext:error:",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "decrypt",
+            "printedName": "decrypt(key:iv:ciphertext:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Data",
+                "printedName": "Foundation.Data",
+                "usr": "s:10Foundation4DataV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Data",
+                "printedName": "Foundation.Data",
+                "usr": "s:10Foundation4DataV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Data",
+                "printedName": "Foundation.Data",
+                "usr": "s:10Foundation4DataV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Data",
+                "printedName": "Foundation.Data",
+                "usr": "s:10Foundation4DataV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@AzureAIVisionFaceUI@objc(cs)IosAesGcm(cm)decryptWithKey:iv:ciphertext:error:",
+            "mangledName": "$s19AzureAIVisionFaceUI9IosAesGcmC7decrypt3key2iv10ciphertext10Foundation4DataVAJ_A2JtKFZ",
+            "moduleName": "AzureAIVisionFaceUI",
+            "static": true,
+            "objc_name": "decryptWithKey:iv:ciphertext:error:",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "IosAesGcm",
+                "printedName": "AzureAIVisionFaceUI.IosAesGcm",
+                "usr": "c:@M@AzureAIVisionFaceUI@objc(cs)IosAesGcm"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@AzureAIVisionFaceUI@objc(cs)IosAesGcm(im)init",
+            "mangledName": "$s19AzureAIVisionFaceUI9IosAesGcmCACycfc",
+            "moduleName": "AzureAIVisionFaceUI",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@AzureAIVisionFaceUI@objc(cs)IosAesGcm",
+        "mangledName": "$s19AzureAIVisionFaceUI9IosAesGcmC",
+        "moduleName": "AzureAIVisionFaceUI",
+        "declAttributes": [
+          "Final",
+          "AccessControl",
+          "ObjC",
+          "Documentation",
+          "RawDocComment"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
@@ -4491,21 +4710,21 @@
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/ViewModels\/AppState.swift",
       "kind": "StringLiteral",
-      "offset": 21145,
+      "offset": 21477,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/ViewModels\/AppState.swift",
       "kind": "StringLiteral",
-      "offset": 21187,
+      "offset": 21519,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/ViewModels\/AppState.swift",
       "kind": "BooleanLiteral",
-      "offset": 22026,
+      "offset": 22358,
       "length": 5,
       "value": "false"
     },
