@@ -5,6 +5,7 @@
 import AVFoundation
 @_exported import AzureAIVisionFaceUI
 import Combine
+import CryptoKit
 import Foundation
 import Swift
 import SwiftUI
@@ -12,6 +13,12 @@ import UIKit
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
+@_inheritsConvenienceInitializers @_documentation(visibility: internal) @objc final public class IosAesGcm : ObjectiveC.NSObject {
+  @objc(encryptWithKey:iv:plaintext:error:) public static func encrypt(key: Foundation.Data, iv: Foundation.Data, plaintext: Foundation.Data) throws -> Foundation.Data
+  @objc(decryptWithKey:iv:ciphertext:error:) public static func decrypt(key: Foundation.Data, iv: Foundation.Data, ciphertext: Foundation.Data) throws -> Foundation.Data
+  @objc override dynamic public init()
+  @objc deinit
+}
 public struct LivenessDetectionError : Swift.Error, Swift.Equatable {
   public let resultId: Swift.String?
   public let livenessError: AzureAIVisionFaceUI.LivenessError

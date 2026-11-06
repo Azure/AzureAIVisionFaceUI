@@ -281,6 +281,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #if __has_warning("-Watimport-in-framework-header")
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
+@import ObjectiveC;
 #endif
 
 #endif
@@ -302,6 +303,15 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #endif
 
 #if defined(__OBJC__)
+
+@class NSData;
+/// :nodoc:
+SWIFT_CLASS("_TtC19AzureAIVisionFaceUI9IosAesGcm")
+@interface IosAesGcm : NSObject
++ (NSData * _Nullable)encryptWithKey:(NSData * _Nonnull)key iv:(NSData * _Nonnull)iv plaintext:(NSData * _Nonnull)plaintext error:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
++ (NSData * _Nullable)decryptWithKey:(NSData * _Nonnull)key iv:(NSData * _Nonnull)iv ciphertext:(NSData * _Nonnull)ciphertext error:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
 
 #endif
 #if __has_attribute(external_source_symbol)
